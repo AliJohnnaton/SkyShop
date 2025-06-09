@@ -40,7 +40,12 @@ public class ShopController {
 
     @GetMapping("/basket/{id}")
     public String addProduct(@PathVariable("id") UUID id) {
-        return basketService.addProduct(id);
+        try {
+            basketService.addProduct(id);
+        } catch (IllegalArgumentException e) {
+            return "Продукт не найден";
+        }
+        return "Продукт успешно добавлен";
     }
 
     @GetMapping("/basket")

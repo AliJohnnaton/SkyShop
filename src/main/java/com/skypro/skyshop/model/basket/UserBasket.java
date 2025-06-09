@@ -12,4 +12,12 @@ public class UserBasket {
                 .mapToLong(k -> (long) k.getProduct().getPrice() * k.getCount())
                 .sum();
     }
+
+    public List<BasketItem> getBasket() {
+        return basket;
+    }
+
+    public long getTotal() {
+        return total;
+    }
 }

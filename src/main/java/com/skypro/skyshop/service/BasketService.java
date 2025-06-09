@@ -18,13 +18,12 @@ public class BasketService {
         this.storage = storage;
     }
 
-    public String addProduct(UUID id) {
+    public void addProduct(UUID id) throws IllegalArgumentException {
         if (storage.getProductById(id).isEmpty()) {
-            return "Продукт не найден";
+            throw new IllegalArgumentException("Продукт не найден");
+        } else {
+            basket.add(id);
         }
-        basket.add(id);
-        return "Продукт успешно добавлен";
-
     }
 
     public UserBasket getUserBasket() {
