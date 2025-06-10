@@ -19,7 +19,7 @@ public class BasketService {
         this.storage = storage;
     }
 
-    public void addProduct(UUID id) throws IllegalArgumentException {
+    public void addProduct(UUID id){
         if (storage.getProductById(id).isEmpty()) {
             throw new NoSuchProductException("Продукт с ID " + id + " не найден");
         } else {
