@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class SearchService {
     private final StorageService storage;
 
-    public SearchService() {
+    public SearchService(StorageService storageService) {
         this.storage = new StorageService();
     }
 
